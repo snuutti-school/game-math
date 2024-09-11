@@ -120,7 +120,7 @@ namespace GameMath.Cameras
         public Vector3 CameraPosition => renderCamera.transform.position;
         public Quaternion CameraOrientation => renderCamera.transform.rotation;
         
-        private void OnValidate()
+        private void Awake()
         {
             virtualCamera = GetComponent<CinemachineVirtualCamera>();
             virtualCamera.m_Lens.Orthographic = true;
@@ -136,10 +136,7 @@ namespace GameMath.Cameras
             }
             
             transform.eulerAngles = new Vector3(30, initialAngle, 0);
-        }
-        
-        private void Awake()
-        {
+            
             virtualCamera = GetComponent<CinemachineVirtualCamera>();
             targetRotationY = initialAngle;
             targetZoomDistance = virtualCamera.m_Lens.OrthographicSize;
