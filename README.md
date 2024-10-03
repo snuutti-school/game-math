@@ -11,7 +11,7 @@ Crane execute following sequence of actions when user click on `Concrete`:
 2. `Trolley` moves in position that makes `Cable` ready to pick up `Concrete`. `Trolley` movement is still constrained by near and far limit points
 3. Adjust `Cable` length so that `Hook` can reach `Concrete` and pick it up
 4. Wait 1 second and gradually lift up the `Concrete` until it reaches `Cable` minimum length
-5. Detach `Concete` and move it to a random location that the next sequence can reach it. Hint: that position is constrained by `Trolley`'s near/far limit and `Cable`'s min/max length
+5. Detach `Concete` and move it to a random location that the next sequence can reach it
 
 | Grade | Mechanics |
 | :---: | ------------- |
@@ -19,7 +19,7 @@ Crane execute following sequence of actions when user click on `Concrete`:
 | 2 | Perform upto step 2 with maximum 0.1 unit distance of error between `Trolley` position and `Concrete`'s attachment position. That distance is calculated by projecting both positions onto world plane (e.g: the plane at position zero and world up vector as normal) and then find the magnitude of the vector formed by those 2 projected points |
 | 3 | Perform upto step 3 |
 | 4 | Perform upto step 4 |
-| 5 | Perform upto step 5. The validity of the random position can be checked by projecting it to world plane and compare that with projected inner and outer circles formed by `Trolley`'s near and far limits. The y position can be tested against `Cable`'s min and max length |
+| 5 | Perform upto step 5. The validity of the random position can be checked by projecting it to world plane and compare that with projected inner and outer circles formed by `Trolley`'s near and far limits. The y position must be in range [10, 20]
 
 
 ### Note:
