@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,5 +40,16 @@ public class Cable : MonoBehaviour
         transform.localScale = newScale;
 
         _initialPositionOffset = new Vector3(0, -scaleFactor / 2.0f, 0);
+    }
+
+    public IEnumerator MoveToValue(float targetValue)
+    {
+        while (Mathf.Abs(slider.value - targetValue) > 0.01f)
+        {
+            slider.value = Mathf.MoveTowards(slider.value, targetValue, Time.deltaTime / 5);
+            yield return null;
+        }
+
+        slider.value = targetValue;
     }
 }
